@@ -126,5 +126,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_URL = '/login/'        # куда перекидывать, если не авторизован
-LOGIN_REDIRECT_URL = '/moods/'  # куда отправлять после входа
+LOGIN_REDIRECT_URL = '/'  # куда отправлять после входа
 LOGOUT_REDIRECT_URL = '/login/' # куда отправлять после выхода

@@ -1,5 +1,3 @@
-
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -75,4 +73,5 @@ def mood_grid(request):
         months.append({'days': days})
 
     # Передаем список месяцев для адаптивной сетки
-    return render(request, 'main/mood_grid.html', {'months': months})
+    today = date.today()
+    return render(request, 'main/mood_grid.html', {'months': months, 'today': today})

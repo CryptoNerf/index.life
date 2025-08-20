@@ -20,7 +20,7 @@
         <div class="month-block">
           <div class="month-grid">
             {% for day in month.days %}
-              <a href="{% url 'edit_day' day.date %}" class="cube {% if day.filled %}filled{% endif %}" title="{{ day.date }}"></a>
+              <a href="{% url 'edit_day' day.date %}" class="cube{% if day.filled %} filled{% endif %}{% if day.date == today %} today{% endif %}" title="{{ day.date }}"></a>
             {% endfor %}
           </div>
         </div>
