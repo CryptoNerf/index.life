@@ -3,13 +3,32 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django import forms
 from .forms import CustomRegisterForm
+from .forms import ProfileForm
 from .models import MoodEntry
+from .models import Profile
 from datetime import datetime, date
 import calendar
+from django.db.models import Avg
 
 @login_required
 def account(request):
-    return render(request, 'main/account.html', {'user': request.user})
+    profile, created = Profile.objects.get_or_create(user=request.user)
+    avg_rating = None
+    if request.user.is_authenticated:
+        avg_rating = MoodEntry.objects.filter(user=request.user).aggregate(Avg('rating'))['rating__avg']
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('account')
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'main/account.html', {
+        'user': request.user,
+        'profile': profile,
+        'form': form,
+        'avg_rating': avg_rating
+    })
 
 class MoodEntryForm(forms.ModelForm):
     class Meta:
