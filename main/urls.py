@@ -8,6 +8,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('day/<str:day>/', views.edit_day, name='edit_day'),
     path('account/', views.account, name='account'),
+    path('what_is_index/', views.what_is_index, name='what_is_index'),
 ]
 
 # Serve media files in development

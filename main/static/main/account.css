@@ -1,18 +1,52 @@
+header {
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.top-menu {
+  display: flex;
+  gap: 24px;
+  font-size: 20px;
+  margin-top: 60px;
+  margin-left: 70px;
+}
+.menu-link {
+  color: #222;
+  text-decoration: none;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+.menu-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+/* Make header fixed and add top padding to body */
+.main-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
 /* ========== Footer ========== */
 .main-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
-  margin: 0;
+  margin: 20px 0 0 0;
   text-align: center;
   color: #222;
   font-size: 16px;
   background: #fff;
-  z-index: 10;
   padding: 10px 0;
+  flex-shrink: 0;
 }
-/* Добавьте эти стили в ваш account.css файл */
 
 /* Полностью скрываем стандартный input file */
 .input-file {
@@ -63,6 +97,16 @@
   flex-wrap: wrap;
   gap: 8px;
 }
+
+.center-account-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 @media (max-width: 600px) {
   .main-footer {
     font-size: 15px;

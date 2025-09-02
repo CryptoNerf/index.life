@@ -10,6 +10,11 @@ from datetime import datetime, date
 import calendar
 from django.db.models import Avg
 
+
+def what_is_index(request):
+    return render(request, 'main/what_is_index.html')
+
+
 @login_required
 def account(request):
     profile, created = Profile.objects.get_or_create(user=request.user)
