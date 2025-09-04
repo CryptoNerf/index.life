@@ -20,7 +20,7 @@ crispy-bootstrap5==2024.2
 cycler==0.12.1
 decorator==5.1.1
 dill==0.3.9
-Django==4.1.13
+Django==4.2.16
 django-allauth==0.63.1
 django-crispy-forms==2.1
 django-debug-toolbar==4.3.0
